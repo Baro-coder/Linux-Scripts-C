@@ -1,0 +1,42 @@
+ 
+ Program tworzący dwa procesy potomne.
+ Procesy:
+ 
+	I  - Czyta kolejne linie pliku z kodem źródłowym oraz
+	      umieszcza je w nowoutworzonym pliku 'tmp.txt'
+	      nadpisując linię zapisaną poprzednio.	
+	II - Cyklicznie odczytuje zawartość pliku 'tmp.txt'
+	      linia po linii i wyświetla je na ekranie.
+
+ Po zakończeniu procedury plik 'tmp.txt' jest usuwany.
+ Mechanizm synchronizacji procesów: sygnały
+	SIGUSR1:
+		- Main:	
+			> pierwsze dwa odebrane sygnały 
+			   SIGUSR1 informują proces główny
+			   o gotowości procesów potomnych.
+			> pozostałe odebrane sygnały
+			   SIGUSR1 informują o zakończeniu
+			   okresowej operacji jednego
+			   z procesów. Wtedy 'Main' wysyła
+			   SIGUSR1 do oczekującego procesu.
+		- P/I:	
+			> Wykonanie kolejnej iteracji swojego
+			   działania.
+		- P/II:
+			> Wykonanie kolejnej iteracji swojego
+			   działania.	
+	SIGUSR2:
+		- Main:
+			> Wysłanie sygnału SIGUSR2 do procesów
+			   potomnych.
+		- P/I:
+			> Zakończenie działania procesu.
+		- P/II:
+			> Zakończenie działania procesu.
+
+ Czytanie pliku źródłowego zrealizowane za pomocą funkcji
+  'fgets()'.
+ Obsługa pliku 'tmp.txt' - niskopoziomowe funkcje: 
+  'open', 'read', 'write', 'lseek'...
+
