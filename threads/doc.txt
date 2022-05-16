@@ -1,0 +1,16 @@
+ 
+ Program wielowątkowy obliczajacy entropię liczoną w bitach:
+
+    i = [1:n]
+    H = - sum(pi * log2(pi))
+
+ Każdy iloczyn będzie obliczany w osobnym wątku, do którego przekazany
+ jest argument pi - nie przez zmienną wspólną, a watek główny wyświetli
+ wynik działania (przekazany mu parametrem) i identyfikator każdego
+ zakończonego wątku, zsumuje otrzymane wyniki i wynik końcowy H
+ wyświetli na ekranie. Wątki pracują współbieżnie.
+
+ Wartości p1, p2, ..., pn podaje operator do momentu, aż suma
+ liczb osiągnie lub przekroczy wartość 1, o czym operator
+ zostanie poinformowany.
+
