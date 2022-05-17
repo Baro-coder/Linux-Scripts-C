@@ -1,3 +1,15 @@
+/*
+    -----------------------------------
+    | Signal sync  - writer--reader C |
+    |          ## READER ##           |
+    -----------------------------------
+*/
+
+/*
+     -------------
+    -- LIBRARIES --
+     -------------
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -6,15 +18,48 @@
 #include <fcntl.h> 
 #include <time.h>
 
+/*
+     ----------------
+    -- DECLARATIONS --
+     ----------------
+*/
 void reader_do();
 void sig_handler(int signum);
 void read_writer_pid();
 void write_own_pid();
 
+/*
+     ---------------
+    -- GLOBAL VARS --
+     ---------------
+*/
 char * filename_in = "tmp.txt";
 int writer_pid = 0;
 
+/*
+     --------------
+    -- MAIN DRIVE --
+     --------------
+*/
+int main()
+{
+    signal(SIGUSR1, sig_handler);
+    signal(SIGUSR2, sig_handler);
 
+    read_writer_pid();
+    write_own_pid();
+    kill(writer_pid, SIGUSR1);
+
+    while(1) { ;; }
+
+    return 0;
+}
+
+/*
+     -------------
+    -- FUNCTIONS --
+     -------------
+*/
 void reader_do()
 {
     int f_out_disp = open(filename_in, O_RDONLY, 0); // opening the output file to read
@@ -80,18 +125,4 @@ void write_own_pid()
         fprintf(stderr, "Error opening file: %s\n", filename_in);
         exit(-1);
     }
-}
-
-int main()
-{
-    signal(SIGUSR1, sig_handler);
-    signal(SIGUSR2, sig_handler);
-
-    read_writer_pid();
-    write_own_pid();
-    kill(writer_pid, SIGUSR1);
-
-    while(1) { ;; }
-
-    return 0;
 }

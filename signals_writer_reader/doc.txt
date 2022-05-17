@@ -31,3 +31,7 @@
  Plik pomocniczy obsługiwany funkcjami niskopoziomowymi:
     'open', 'read', 'write', 'lseek'...
 
+
+ Najpierw uruchamiać skrypt pisarza, następnie czytelnika!
+
+

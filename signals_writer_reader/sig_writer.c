@@ -1,3 +1,15 @@
+/*
+    -----------------------------------
+    | Signal sync  - writer--reader C |
+    |          ## WRITER ##           |
+    -----------------------------------
+*/
+
+/*
+     -------------
+    -- LIBRARIES --
+     -------------
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -6,11 +18,21 @@
 #include <fcntl.h> 
 #include <time.h>
 
+/*
+     ----------------
+    -- DECLARATIONS --
+     ----------------
+*/
 void writer_do();
 void sig_handler(int signum);
 void read_reader_pid();
 void write_own_pid();
 
+/*
+     ---------------
+    -- GLOBAL VARS --
+     ---------------
+*/
 char * filename_in = "/etc/profile";
 char * filename_out = "tmp.txt";
 
@@ -19,6 +41,28 @@ int reader_pid = 0;
 int ready = 0;
 int line_count = 0;
 
+/*
+     --------------
+    -- MAIN DRIVE --
+     --------------
+*/
+int main()
+{
+    signal(SIGUSR1, sig_handler);
+    signal(SIGUSR2, sig_handler);
+
+    write_own_pid();
+
+    while(1) { ;; }
+
+    return 0;
+}
+
+/*
+     -------------
+    -- FUNCTIONS --
+     -------------
+*/
 void writer_do()
 {
     FILE *f_in_wrt = fopen(filename_in, "r"); // opening the source file
@@ -138,16 +182,4 @@ void write_own_pid()
         fprintf(stderr, "Error opening file: %s\n", filename_out);
         exit(-1);
     }
-}
-
-int main()
-{
-    signal(SIGUSR1, sig_handler);
-    signal(SIGUSR2, sig_handler);
-
-    write_own_pid();
-
-    while(1) { ;; }
-
-    return 0;
 }
