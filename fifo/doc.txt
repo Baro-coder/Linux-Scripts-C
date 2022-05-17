@@ -1,0 +1,36 @@
+
+ Dwa programy typu serwer, klient. Liczba procesów w programie
+ klient jest określana jako parametr wywołania.
+
+ Serwer tworzy ogólnodostępną kolejkę FIFO (fifo_serwer)
+ i czeka na zgłoszenia klientów.
+
+ Każdy klient tworzy własną kolejkę FIFO z unikatową nazwą
+ (fifo_pid), poprzez którą będą przychodzić odpowiedzi serwera.
+
+ Klient wysyła nazwę stworzonej przez siebie kolejki do serwera.
+
+ Serwer odsyła poprzez kolejkę utworzoną przez klienta wynik
+ polecenia 'ls'.
+
+
+ Przykład:
+
+	Wywołanie:
+		./klient 4
+		./serwer
+	
+	Przebieg działania: 
+		Program serwer:
+		 > Zapis do fifo_1235
+		 > Zapis do fifo_1236
+		 > Zapis do fifo_1237
+		 > Zapis do fifo_1238
+
+		Program klient:
+		 > Klient 1 [1235]: fifo_1235, fifo_serwer, <pozostałe pliki i katalogi...>
+		 > Klient 2 [1236]: fifo_1236, fifo_1235, fifo_serwer, <pozostałe pliki i katalogi...>
+		 > Klient 3 [1237]: fifo_1237, fifo_1236, fifo_1235, fifo_serwer, <pozostałe pliki i katalogi...>
+		 > Klient 4 [1238]: fifo_1238, fifo_1237, fifo_1236, fifo_1235, fifo_serwer, <pozostałe pliki i katalogi...>
+
+	
