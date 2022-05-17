@@ -1,0 +1,33 @@
+
+ PISARZ:
+ ./sig_writer.c:
+ 
+    Program, który czyta kolejne linie pliku '/etc/profile'
+    oraz umieszcza je w utworzonym pliku nadpisując linię
+    zapisaną poprzednio.
+
+
+ CZYTELNIK:
+ ./sig-reader.c:
+ 
+     Program, który cyklicznie czyta zawartość pliku pomocniczego
+     i wyświetla na ekranie odczytaną zawartość linia po linii.
+ 
+
+ Po zakończeniu operacji oba programy kończą pracę.
+
+ Mechanizm synchronizacji: sygnały:
+
+        SIGUSR1:
+            PISARZ:     rozpoczęcie kolejnej iteracji swojej pracy
+            CZYTELNIK:  rozpoczęcie kolejnej iteracji swojej pracy
+
+        SIGUSR2:
+            PISARZ:     zakończenie działania 
+            CZYTELNIK:  zakończenie działania
+
+ Plik źródłowy obsługiwany funkcją 'fgets()'
+
+ Plik pomocniczy obsługiwany funkcjami niskopoziomowymi:
+    'open', 'read', 'write', 'lseek'...
+
