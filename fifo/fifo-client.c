@@ -97,8 +97,6 @@ void client_do(int index)
     write(fd, cl_dat->fifo, sizeof(cl_dat->fifo)+10);
     close(fd);
 
-    //sleep(10);
-
     char res[2048];
 
     fd = open(cl_dat->fifo, O_RDONLY);

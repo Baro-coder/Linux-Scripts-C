@@ -65,8 +65,6 @@ int main()
 
         strcpy(mes, out);
 
-        //printf("   # %s\n\n   # %s\n\n", mes, out);
-
         fd = open(res, O_WRONLY);
         write(fd, out, 100 * sizeof(out));    // Here is PROBLEM !!!
                                             // out is not written 
