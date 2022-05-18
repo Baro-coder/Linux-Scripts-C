@@ -17,8 +17,8 @@
  Przykład:
 
 	Wywołanie:
-		./klient 4
 		./serwer
+		./klient 4
 	
 	Przebieg działania: 
 		Program serwer:
@@ -34,3 +34,9 @@
 		 > Klient 4 [1238]: fifo_1238, fifo_1237, fifo_1236, fifo_1235, fifo_serwer, <pozostałe pliki i katalogi...>
 
 	
+ ## UWAGA! ##
+ Najpierw należy uruchomić program serwera, a następnie klienta.
+ Nazwy plików źródłowych i skompilowanych nie mogą zaczynać się od 'fifo_',
+  ponieważ zostaną usunięte po wyłączeniu serwera sygnałem SIGINT (Ctrl+C).
+
+
