@@ -11,12 +11,12 @@
 
  > PP1 [pid_pp1]: Podaj tekst:				TekSt1!
  - PP1 [pid_pp1, id_pipe1_zapis]:   Wysłano do PM:	TekSt1!
- - PM  [pid_pm,   id_pipe1_odczyt]: Odczytano od PP1:	TekSt1!
- - PM  [pid_pm,   id_pipe2_zapis]:  Wysłano do PP2:	TekSt1!
+ - PM  [pid_pm,  id_pipe1_odczyt]:  Odczytano od PP1:	TekSt1!
+ - PM  [pid_pm,  id_pipe2_zapis]:   Wysłano do PP2:	TekSt1!
  - PP2 [pid_pp2, id_pipe2_odczyt]:  Odczytano od PM:	TekSt1!
  - PP2 [pid_pp2, id_pipe3_zapis]:   Wysłano do PM:	tEKsT1!
- - PM  [pid_pm,   id_pipe3_odczyt]: Odczytano do PP2:	tEKsT1!
- - PM  [pid_pm,   id_pipe4_zapis]:  Wysłano do PP1:	tEKsT1!
+ - PM  [pid_pm,  id_pipe3_odczyt]:  Odczytano do PP2:	tEKsT1!
+ - PM  [pid_pm,  id_pipe4_zapis]:   Wysłano do PP1:	tEKsT1!
  - PP1 [pid_pp1, id_pipe4_odczyt]:  Odczytano od PM:	tEKsT1!
 
  > PP1 [pid_pp1]: Podaj tekst:
