@@ -1,0 +1,23 @@
+
+ Program tworzący 3 procesy potomne.
+
+ Proces I:
+    Czyta ze standardowego wejścia liczbę X oraz EPS > 0, 
+     określającą precyzję obliczeń (np. 0.000001). Obie
+     te liczby wysyła do procesu II.
+
+ Proces II:
+    Wylicza kolejne wyrazy szeregu:
+
+        sum( (-1^i * x^2i ) / (2i)! ) | (i=0, i->inf)
+
+     i przesyła je do procesu III. Wyliczanie kończy się,
+     gdy wyraz szeregu jest zaniedbywalnie mały (< EPS).
+
+ Proces III:
+    Sumuje pobierane z łącza liczby i wyświetla wynik na ekranie.
+
+
+ Mechanizm komunikacji: łącza nienazwane (pipe).
+
+ c
