@@ -1,0 +1,16 @@
+
+ Procesy:
+	> Główny - co x sekund wyprowadza na stdout liczbę sekund
+		    (x = rand()%(10+n) + 2; n - dowolna całkowita)
+
+ W przypadku odebrania jakiegokolwiek sygnału wypisuje na stderr 
+  numer sygnału oraz PID procesu.
+
+ Sygnał SIGCONT powoduje utworzenie nowego procesu potomnego, 
+  który wygeneruje y losowych liczb z zakresu <1,49> oraz 
+  poda ich sumę (y - dowolna całkowita).
+
+ Sygnał SIGUSR1 powoduje wstrzymanie pracy programu.
+ Sygnał SIGUSR2 powoduje wznowienie pracy programu.
+
+
