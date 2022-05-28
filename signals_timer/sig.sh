@@ -2,7 +2,7 @@
 
 if [ ! $# -eq 2 ]; then
 	echo "Incorrect usage!"
-	echo "Usage: $0 <sig...> <main_pid...>"
+	echo "Usage: $0 <main_pid...> <sig...>"
 	echo "sig:"
 	echo "	0 - SIGKILL"
 	echo "	1 - SIGCONT"
@@ -22,7 +22,7 @@ else
 		kill -s SIGUSR2 "$pid"
 	else
 		echo "Incorrect usage!"
-		echo "Usage: $0 <sig...> <main_pid...>"
+		echo "Usage: $0 <main_pid...> <sig...>"
 		echo "sig:"
 		echo "	0 - SIGKILL"
 		echo "	1 - SIGCONT"
