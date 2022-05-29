@@ -1,0 +1,32 @@
+
+ Program tworzy cztery procesy:
+    - 1x Producent
+    - 3x Konsument
+
+ Producent  - umieszcza pobrane z stdin dane
+               w obszarze pamięci dzielonej.
+
+ Konsumenci - czytają dane przesłane przez
+               producenta.
+
+
+ Scenariusze:
+
+    --  I  --
+        Konsumenci "ścigają się" z odebraniem danych
+         z pamięci dzielonej. Tylko jeden z nich
+         odczytuje dane.
+
+    -- II  --
+        Konsumenci czytają naprzemiennie. Tylko jeden
+         z nich odczytuje dane.
+
+    -- III --
+        Konsumenci czytają kolejno każdy komunikat.
+         Wszyscy konsumenci odbierają każdy komunikat.
+
+    -- IV  --
+        Pierwszy konsument odbiera dane 2 x częściej niż drugi.
+        Drugi konsument odbiera dane 2 x częściej niż trzeci.
+        Tylko jeden konsument odczytuje dane.
+
