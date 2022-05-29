@@ -1,0 +1,15 @@
+
+ Program tworzący dwa procesy komunikujące się
+  przez kolejkę komunikatów. Komunikacja polega
+  na przesyłaniu komunikatów różnego typu.
+  
+ Proces odbierający odbiera tylko komunikaty typu
+  różnego od podanego jako parametr wywołania.
+
+ Proces generujący tworzy tyle komunikatów, ile
+  podano jako parametr wywołania.
+
+ 'Komunikat' - struktura dwuelementowa:
+                > typ komunikatu    - liczba z przedziału <1,10>
+                > dane komunikatu   - liczba z przedziału <1,1000>
+
