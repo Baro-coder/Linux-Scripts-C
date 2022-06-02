@@ -109,7 +109,8 @@ int main()
             memset(te->buffer,0,128);
         }
 
-        kill(PP1, SIGINT);Pamiec wspoldzielona nie istnieje...
+        kill(PP1, SIGINT);
+    }
 
     sem_close(&te->s_prod);
     sem_close(&te->s_cons_1);
