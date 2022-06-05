@@ -1,0 +1,21 @@
+ Program tworzacy 3 procesy.
+ Pobiera z parametru pozycyjnego parametr k.
+
+ Proces 1:
+	Pobiera dane z pliku wejsciowego i przekazuje
+	 wraz z liczba k do procesu 2.
+
+ Proces 2:
+	Szyfruje dane szyfrem Cezara i kluczem k,
+	 a uzyskany szyfrogram przekazuje do procesu 3.
+
+ Proces 3:
+	Wypisuje w oddzielnych liniach wersach komunikat
+	 o tresci: 
+	 [PID1]:[PID2]:[PID3]:<liczba otrzymanych znakow>:szyfrogram
+
+ Komunikacja procesów:
+	1 - 2:	pipe
+	2 - 3:	fifo
+
+
